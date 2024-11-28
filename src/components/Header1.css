@@ -1,0 +1,159 @@
+.header1 {
+    display: flex;
+    justify-content: space-between; /* Ensure space between logo1 and nav */
+    align-items: center;
+    padding: 0;
+    z-index: 10;
+    flex-wrap: nowrap; /* Prevents wrapping on larger screens */
+    position: relative;
+    background-color: white;
+    width: 70%;
+    margin-left: 200px;
+}
+
+.logo1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000000;
+    padding: 10px;
+    background-color:bg-blue-100;
+    flex-basis: 35%; /* logo1 takes up 35% of space initially */
+    border-top-right-radius: 300px;
+}
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1; /* Allows the nav to shrink/grow with screen size */
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin-right: 0; /* Reset right margin */
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-list li {
+    margin-left: 40px; /* Spacing between links */
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 10px 15px;
+    transition: font-weight 0.3s ease;
+}
+
+.nav-list li a:hover {
+    color: #EC3D2F;
+}
+
+.nav-list li a.active {
+    font-weight: bold;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 4px 0;
+    transition: 0.3s;
+}
+
+
+/* For screens larger than 768px (desktops and laptops) */
+@media (min-width: 769px) and (max-width: 1200px) {
+/* This media query handles laptops */
+.logo1 {
+    flex-basis: 40%; /* Allow logo1 to take up more space */
+}
+
+.nav-list {
+    justify-content: flex-end;
+    flex-basis: 60%; /* Reduce the space taken by the menu */
+}
+
+.nav-list li a {
+    font-size: 16px; /* Slightly reduce font size for responsive feel */
+}
+
+.nav {
+    flex-grow: 1; /* The menu shrinks to maintain alignment */
+}
+}
+
+/* For desktop and larger screens */
+@media (min-width: 1201px) {
+.header1 {
+    padding: 10px 80px; /* Add padding on larger screens */
+}
+
+.logo1 {
+    flex-basis: 30%; /* Allow the logo1 to take up more space */
+}
+
+.nav-list {
+    justify-content: flex-end;
+    flex-basis: 70%; /* Let the menu take up the remaining space */
+}
+
+.nav-list li a {
+    font-size: 18px; /* Normal size for larger screens */
+}
+
+.nav {
+    flex-grow: 1; /* Maintain flexibility */
+}
+}
+
+/* For screens smaller than 768px (tablets and mobiles) */
+@media (max-width: 768px) {
+.logo1 {
+    width: 100%;
+    text-align: center;
+    border-top-right-radius: 0;
+}
+
+.nav-list {
+    display: none;
+    flex-direction: column;
+    width: 200px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #BCCDE0;
+    padding: 10px 0;
+    z-index: 999;
+    border-bottom-left-radius: 10px;
+}
+
+.nav-list.open {
+    display: flex;
+}
+
+.nav-list li {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.nav-list li a {
+    font-size: 18px;
+}
+
+.hamburger {
+    display: flex;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+}
